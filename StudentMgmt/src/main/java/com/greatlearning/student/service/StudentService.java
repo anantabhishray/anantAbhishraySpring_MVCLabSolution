@@ -13,6 +13,4 @@ public interface StudentService {
 
 	public void deleteById(int theId);
 
-	public List<Student> searchBy(String name, String author);
-
 }

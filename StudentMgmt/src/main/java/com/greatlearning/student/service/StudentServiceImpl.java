@@ -84,27 +84,6 @@ public class StudentServiceImpl implements StudentService {
 
 	}
 
-	@Transactional
-	public List<Student> searchBy(String Name, String country) {
-
-		
-		Transaction tx = session.beginTransaction();
-		String query = "";
-		if (Name.length() != 0 && country.length() != 0)
-			query = "from Student where name like '%" + Name + "%' or country like '%" + country + "%'";
-		else if (Name.length() != 0)
-			query = "from Student where name like '%" + Name + "%'";
-		else if (country.length() != 0)
-			query = "from Student where country like '%" + country + "%'";
-		else
-			System.out.println("Cannot search without input data");
-
-		List<Student> student = session.createQuery(query).list();
-
-		tx.commit();
-
-		return student;
-	}
 
 	@Transactional
 	public void print(List<Student> student) {
